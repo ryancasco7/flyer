@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>System status</title>
+  <style>
+    :root {
+      --bg-0: #0c1222;
+      --bg-1: #151b2e;
+      --accent: #5b8cff;
+      --accent-soft: rgba(91, 140, 255, 0.15);
+      --text: #e8ecf4;
+      --muted: #8b96ad;
+      --card: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(ellipse 120% 80% at 50% -20%, var(--bg-1), var(--bg-0)),
+                  linear-gradient(160deg, var(--bg-0) 0%, #080d18 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .panel {
+      width: min(100%, 420px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(0.92); }
+    }
+
+    h1 {
+      font-size: clamp(1.35rem, 4vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <main class="panel" role="status" aria-live="polite">
+    <div class="badge">System status</div>
+    <h1>The system has not been deployed yet.</h1>
+    <p>We apologize for the inconvenience.</p>
+  </main>
+</body>
+</html>
